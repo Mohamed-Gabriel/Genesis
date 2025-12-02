@@ -660,181 +660,112 @@
         .cube-top { transform: translateY(-150px) rotateX(90deg); }
         .cube-bottom { transform: translateY(150px) rotateX(-90deg); }
 
-        /* Leadership Team Section - UPDATED DESIGN */
+        /* Leadership Team Section */
         .team {
             padding: 100px 0;
             background: var(--bg-primary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(0, 240, 255, 0.05) 0%, transparent 30%),
-                        radial-gradient(circle at 80% 70%, rgba(185, 103, 255, 0.05) 0%, transparent 30%);
-            z-index: 0;
-        }
-
-        .team-container {
-            position: relative;
-            z-index: 1;
         }
 
         .team-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .team-member {
-            display: flex;
-            align-items: center;
-            gap: 40px;
+        .team-card {
             background: var(--bg-card);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border-color);
-            transition: all 0.4s ease;
-            position: relative;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
         }
 
-        .team-member:hover {
+        .team-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px var(--shadow);
+            box-shadow: 0 15px 40px var(--shadow);
             border-color: var(--accent-primary);
         }
 
-        .team-member:nth-child(odd) {
-            flex-direction: row;
-        }
-
-        .team-member:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .team-member:before {
+        .team-card:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: var(--gradient);
-            z-index: 2;
-        }
-
-        .member-img {
-            flex: 0 0 250px;
-            height: 280px;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .member-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .team-member:hover .member-img img {
-            transform: scale(1.05);
-        }
-
-        .member-img:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.7));
             z-index: 1;
         }
 
-        .member-info {
-            flex: 1;
-            padding: 10px;
-        }
-
-        .member-name {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text-primary);
+        .team-img {
+            width: 100%;
+            height: 250px;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            font-size: 3rem;
             position: relative;
-            display: inline-block;
+            overflow: hidden;
         }
 
-        .member-name:after {
+        .team-img:after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            top: 0;
             left: 0;
-            width: 70px;
-            height: 4px;
-            background: var(--gradient);
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(185, 103, 255, 0.1));
         }
 
-        .member-role {
+        .team-info {
+            padding: 25px;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .team-role {
             color: var(--accent-primary);
             font-weight: 600;
             margin-bottom: 15px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .member-role i {
             font-size: 1rem;
         }
 
-        .member-experience {
+        .team-experience {
             color: var(--text-secondary);
-            margin-bottom: 25px;
-            font-size: 1rem;
-            line-height: 1.7;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
-        .member-achievement {
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(185, 103, 255, 0.1));
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent-tertiary);
+        .team-achievement {
+            background: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 10px;
             margin-top: 15px;
+            border-left: 3px solid var(--accent-tertiary);
         }
 
-        .member-achievement h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+        .team-achievement h4 {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
             color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .member-achievement h4 i {
-            color: var(--accent-tertiary);
-        }
-
-        .member-achievement p {
-            font-size: 0.95rem;
+        .team-achievement p {
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
         /* Contact Section */
@@ -1079,25 +1010,6 @@
                 border-bottom: 1px solid var(--border-color);
                 font-weight: 500;
             }
-            
-            /* Team responsive */
-            .team-member {
-                flex-direction: column !important;
-                gap: 30px;
-                text-align: center;
-            }
-            
-            .member-img {
-                flex: 0 0 200px;
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-            }
-            
-            .member-name:after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
         }
 
         @media (max-width: 768px) {
@@ -1109,7 +1021,7 @@
                 font-size: 2rem;
             }
             
-            .services-grid, .info-grid {
+            .services-grid, .info-grid, .team-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1119,38 +1031,6 @@
             
             .about-stats {
                 grid-template-columns: 1fr;
-            }
-            
-            .member-name {
-                font-size: 1.8rem;
-            }
-            
-            .member-role {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .member-img {
-                flex: 0 0 180px;
-                width: 180px;
-                height: 180px;
-            }
-            
-            .member-info {
-                padding: 5px;
-            }
-            
-            .member-name {
-                font-size: 1.6rem;
             }
         }
 
@@ -1165,42 +1045,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: var(--bg-primary);
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: all 0.3s;
-            z-index: 999;
-            display: none;
-        }
-
-        .mobile-nav.active {
-            transform: translateY(0);
-            opacity: 1;
-            display: block;
-        }
-
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .mobile-nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
-            font-weight: 500;
-        }
     </style>
 </head>
 <body>
@@ -1209,6 +1053,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
+                    <!-- <i class="fas fa-shield-alt"></i> -->
                     <span>Genesis</span>
                 </a>
                 
@@ -1218,34 +1063,28 @@
                     <a href="#services">Services</a>
                     <a href="#about">About</a>
                     <a href="#team">Our Team</a>
+                    <!-- <a href="ghostscan.html">GhostScan</a> -->
                     <a href="#contact">Contact</a>
                 </div>
                 
-              <div class="nav-controls">
-                  <button class="" id="langToggle">
-                    <i class="fas fa-"></i>
+                <div class="nav-controls">
+                  
+                    <button class="" id="langToggle">
+                      <i class="fas fa-"></i>
                     </button>
 
                     <button class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
-                    </button>
-                    
+                    </button>      
+              
+              
                     <button class="menu-toggle" id="menuToggle">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </nav>
             
-            <div class="mobile-nav" id="mobileNav">
-                <div class="mobile-nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#who-we-are">Who is Genesis</a>
-                    <a href="#services">Services</a>
-                    <a href="#about">About</a>
-                    <a href="#team">Our Team</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
+            <div class="mobile-nav" id="mobileNav"></div>
         </div>
     </header>
 
@@ -1333,6 +1172,7 @@
                             <li>Fixing Vulnerabilities</li>
                             <li>Bug Hunting</li>
                             <li>Cybersecurity Consulting</li>
+                            <!-- <li>Awareness & Training</li> -->
                             <li>Data Protection</li>
                             <li>Threat Monitoring</li>
                         </ul>
@@ -1475,91 +1315,74 @@
         </div>
     </section>
 
-    <!-- Leadership Team Section - UPDATED DESIGN -->
+    <!-- Leadership Team Section -->
     <section class="section team" id="team">
-        <div class="container team-container">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Leadership Team</h2>
                 <p class="section-subtitle">Meet the experts behind Genesis Cybersecurity</p>
             </div>
             
             <div class="team-grid">
-                <!-- Mohamed Gabriel -->
-                <div class="team-member fade-in">
-                    <div class="member-img">
-                        <img src="image/Mohamed_1.jpg" alt="Mohamed Gabriel - Team Leader, CEO & Security Strategist">
+                <div class="team-card fade-in">
+                    <div class="team-img">
+                        <img src="image/Mohamed.jpg" alt="Mohamed_Gabriel" style="width: 100%; height:250px; object-fit:cover; border-radius:0;"></img>
                     </div>
-                    <div class="member-info">
-                        <h3 class="member-name">Mohamed Gabriel</h3>
-                        <p class="member-role">
-                            <i class="fas fa-crown"></i>
-                            Team Leader, CEO & Security Strategist
-                        </p>
-                        <p class="member-experience">Over 5 years of experience in cybersecurity, leading penetration testing projects and security strategy implementation for startups and corporate clients. Specializes in threat intelligence, risk assessment, and security architecture design.</p>
-                        <div class="member-achievement">
-                            <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                            <p>Successfully led multiple simulated cyber attack campaigns, identifying critical vulnerabilities and establishing security protocols that improved overall organizational resilience. Developed security frameworks adopted by several tech startups.</p>
+                    <div class="team-info">
+                        <h3 class="team-name">Mohamed Gabriel</h3>
+                        <p class="team-role">Team Leader, CEO & Security Strategist</p>
+                        <p class="team-experience">Over 5 years of experience in cybersecurity, leading penetration testing projects and security strategy implementation for startups and corporate clients.</p>
+                        <div class="team-achievement">
+                            <h4>Key Achievement</h4>
+                            <p>Successfully led multiple simulated cyber attack campaigns, identifying critical vulnerabilities and establishing security protocols that improved overall organizational resilience.</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Safaa Abdulazeem -->
-                <div class="team-member fade-in">
-                    <div class="member-img">
-                        <img src="image/Safaa Abdulazeem_2.jpg" alt="Safaa Abdulazeem - Senior Back-End Developer">
-                    </div>
-                    <div class="member-info">
-                        <h3 class="member-name">Safaa Abdulazeem</h3>
-                        <p class="member-role">
-                            <i class="fas fa-server"></i>
-                            Senior Back-End Developer
-                        </p>
-                        <p class="member-experience">4 years of experience in developing secure server-side applications and APIs, with expertise in Python, Node.js, and secure database design. Focuses on implementing robust authentication systems and data encryption protocols.</p>
-                        <div class="member-achievement">
-                            <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                            <p>Implemented high-security backend systems that prevented potential data breaches in previous projects. Developed a custom encryption module that increased data protection by 40% for client applications.</p>
+                <div class="team-card fade-in">
+                    <div class="team-img">
+                      <img src="image/Safaa Abdulazeem_1.jpg" alt="Safaa Abdulazeem" style="width:100%; height:250px; object-fit:cover; border-radius:0;"></div>
+                      <div class="team-info">
+                        <h3 class="team-name">Safaa Abdulazeem</h3>
+                        <p class="team-role">Senior Back-End Developer</p>
+                        <p class="team-experience">4 years of experience in developing secure server-side applications and APIs, with expertise in Python, Node.js, and secure database design.</p>
+                        <div class="team-achievement">
+                            <h4>Key Achievement</h4>
+                            <p>Implemented high-security backend systems that prevented potential data breaches in previous projects.</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Walaa Ahmed -->
-                <div class="team-member fade-in">
-                    <div class="member-img">
-                        <img src="image/Walaa.jpg" alt="Walaa Ahmed - Front-End Developer & UI Security Specialist">
-                    </div>
-                    <div class="member-info">
-                        <h3 class="member-name">Walaa Ahmed</h3>
-                        <p class="member-role">
-                            <i class="fas fa-code"></i>
-                            Front-End Developer & UI Security Specialist
-                        </p>
-                        <p class="member-experience">3 years of experience in building responsive, secure, and user-friendly web interfaces, ensuring front-end security against modern web threats. Specializes in secure form handling, input validation, and XSS prevention.</p>
-                        <div class="member-achievement">
-                            <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                            <p>Designed front-end architectures that minimize cross-site scripting (XSS) and other client-side vulnerabilities. Reduced security incidents related to user interface by 75% through implementing advanced input sanitization techniques.</p>
+                <div class="team-card fade-in">
+                    <div class="team-img">
+                      <img src="image/Walaa.jpg" alt="Safaa Abdulazeem" style="width:100%; height:250px; object-fit:cover; border-radius:0;"></div>
+                    <div class="team-info">
+                        <h3 class="team-name">Walaa Ahmed</h3>
+                        <p class="team-role">Front-End Developer & UI Security Specialist</p>
+                        <p class="team-experience">3 years of experience in building responsive, secure, and user-friendly web interfaces, ensuring front-end security against modern web threats.</p>
+                        <div class="team-achievement">
+                            <h4>Key Achievement</h4>
+                            <p>Designed front-end architectures that minimize cross-site scripting (XSS) and other client-side vulnerabilities.</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Bassem Elwany -->
-                <div class="team-member fade-in">
-                    <div class="member-img">
-                        <img src="image/Bassem_1.jpg" alt="Bassem Elwany - UX/UI Designer & Human-Centered Security Designer">
-                    </div>
-                    <div class="member-info">
-                        <h3 class="member-name">Bassem Elwany</h3>
-                        <p class="member-role">
-                            <i class="fas fa-palette"></i>
-                            UX/UI Designer & Human-Centered Security Designer
-                        </p>
-                        <p class="member-experience">3 years of experience crafting intuitive and secure user experiences for web and mobile applications, integrating cybersecurity principles into design. Focuses on creating security-aware interfaces that guide users toward safe practices.</p>
-                        <div class="member-achievement">
-                            <h4><i class="fas fa-trophy"></i> Key Achievement</h4>
-                            <p>Redesigned applications with user-centric interfaces while enhancing security awareness and minimizing human error risks. Developed a security dashboard that improved threat visibility by 60% for non-technical users.</p>
+                <div class="team-card fade-in">
+                    <div class="team-img">
+                      <img src="image/Bassem_1.jpg" alt="Safaa Abdulazeem" style="width:100%; height:250px; object-fit:cover; border-radius:0;"></div>
+                      <div class="team-info">
+                        <h3 class="team-name">Bassem Elwany</h3>
+                        <p class="team-role">UX/UI Designer & Human-Centered Security Designer</p>
+                        <p class="team-experience">3 years of experience crafting intuitive and secure user experiences for web and mobile applications, integrating cybersecurity principles into design.</p>
+                        <div class="team-achievement">
+                          <h4>Key Achievement</h4>
+                          <p>Redesigned applications with user-centric interfaces while enhancing security awareness and minimizing human error risks.</p>
                         </div>
+                      </div>
                     </div>
-                </div>
-            </div>
+                  </div>
+        
         </div>
     </section>
 
@@ -1742,9 +1565,9 @@
             // In a real implementation, this would load different content
             // For this demo, we'll just show an alert
             if (document.body.classList.contains('rtl')) {
-                alert('Switched to Arabic language');
+                alert('تم التبديل إلى اللغة العربية');
             } else {
-                alert('Switched to English language');
+                alert('Switched to English');
             }
         });
 
@@ -1760,14 +1583,6 @@
             } else {
                 menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             }
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
         });
 
         // Scroll Animation
@@ -1817,29 +1632,6 @@
                         mobileNav.classList.remove('active');
                         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                     }
-                }
-            });
-        });
-
-        // Add active class to current navigation link
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
                 }
             });
         });
